@@ -1,5 +1,7 @@
 # DBLista
 
+[Dokumentacja](https://www.rubydoc.info/github/marek12306/dblista-wrapper-ruby)
+
 Gem pozwalający na komunikację z API DBListy. Pozwala m.in. na automatyczne wysyłanie statystyk (dla botów napisanych w Discordrb) oraz na CRUD botów oraz serwerów.
 
 ## Instalacja

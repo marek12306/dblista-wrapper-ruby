@@ -2,14 +2,14 @@
 
 require 'json'
 
-# User client - actions
 module DBLista::User
+  # Klient użytkownika - akcje
   module Actions
-  # Adds bot/server to DBLista
+  # Dodaje bota/serwer do DBListy
   #
-  # @param body [Hash] raw body to send
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param body [Hash] surowe dane do wysłania
+  # @param type [Symbol] typ (bot/server)
+  # @return [Hash] surowe dane od DBListy
   def add(body, type = 'bot')
     raise DBLista::Error, DBLista::Errors::BODY_HASH unless body.is_a?(Hash)
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless ALLOWED_TYPES.include?(type)
@@ -17,11 +17,11 @@ module DBLista::User
     DBLista._post("/#{type}s", body, @token)
   end
 
-  # Edits bot/server in DBLista
+  # Edytuje bota/serwer z DBListy
   #
-  # @param body [Hash] raw body to send
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param body [Hash] surowe dane do wysłania
+  # @param type [Symbol] typ (bot/serwer)
+  # @return [Hash] surowe dane od DBListy
   def edit(body, type = :bot)
     raise DBLista::Error, DBLista::Errors::BODY_HASH unless body.is_a?(Hash)
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
@@ -29,11 +29,11 @@ module DBLista::User
     DBLista._put("/#{type}s", body, @token)
   end
 
-  # Deletes bot/server from DBLista
+  # Usuwa bot/serwer od DBListy
   #
-  # @param id [Integer] entity ID
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param id [Integer] ID
+  # @param type [Symbol] typ (bot/serwer)
+  # @return [Hash] surowe dane od DBListy
   def delete(id, type = :bot)
     DBLista._validate_id id
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)

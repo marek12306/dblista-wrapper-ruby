@@ -3,30 +3,30 @@
 require 'cgi'
 
 module DBLista::List
-  # Server lists
+  # Lista serwerów
   module Server
-    # Fetches top servers
+    # Pobiera topkę serwerów
     #
-    # @param page [Integer] page
-    # @return [Hash] raw data from DBLista
+    # @param page [Integer] strona
+    # @return [Hash] surowe dane od DBListy
     def self.top(page = 0)
       DBLista._page_integer page
       DBLista._get("/servers/list/top/#{page}")
     end
 
-    # Fetches premium servers
+    # Pobiera serwery premium
     #
-    # @param page [Integer] page
-    # @return [Hash] raw data from DBLista
+    # @param page [Integer] strona
+    # @return [Hash] surowe dane od DBListy
     def self.premium(page = 0)
       DBLista._page_integer page
       DBLista._get("/servers/list/premium/#{page}")
     end
 
-    # Server search
+    # Wyszukuje serwery
     #
-    # @param query [String] search query
-    # @return [Hash] raw data from DBLista
+    # @param query [String] zapytanie do wyszukiwarki
+    # @return [Hash] surowe dane od DBListy
     def self.search(query)
       raise DBLista::Error, DBLista::Errors::QUERY_NOT_PROVIDED unless query
 

@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-# User client - rating
 module DBLista::User
+  # Klient użytkownika - głosowanie
   module Rating
-  # Sends rate for a selected bot/server
+  # Wysyła opinię dla wybranego bota/serwer
   #
-  # @param id [Integer] entity ID
-  # @param rating [Integer] rating from 0 to 5
-  # @param details [String] details (description)
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param id [Integer] ID
+  # @param rating [Integer] ocena od 1 do 5
+  # @param details [String] szczegóły (opis)
+  # @param type [Symbol] typ (bot/serwer)
+  # @return [Hash] surowe dane od DBListy
   def rate(id, rating, details, type = :bot)
     DBLista._validate_id id
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless ALLOWED_TYPES.include?(type)
@@ -20,12 +20,12 @@ module DBLista::User
                   }, @token)
   end
 
-  # Removes rate for a selected bot/server
+  # Usuwa opinię od wybranego bota/serwera
   #
-  # @param id [Integer] entity ID
-  # @param target_id [Integer] target user to remove rate from (for owners only)
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param id [Integer] ID
+  # @param target_id [Integer] ID użytkownika od kogo opinia ma zostać usunięta
+  # @param type [Symbol] typ (bot/serwer)
+  # @return [Hash] surowe dane od DBListy
   def delete_rate(id, target_id = nil, type = :bot)
     DBLista._validate_id id
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)

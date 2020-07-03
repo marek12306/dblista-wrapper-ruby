@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-##
-# User client - boosting
 module DBLista::User
+  # Klient użytkownika - boostowanie
   module Boosting
-  # Boosts selected bot/server
+  # Boostuje wybranego bota/serwer
   #
-  # @param id [Integer] entity ID
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param id [Integer] ID
+  # @param type [Symbol] typ (bot/serwer)
+  # @return [Hash] surowe dane od DBListy
   def boost(id, type = :bot)
     DBLista._validate_id id
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless ALLOWED_TYPES.include?(type)
@@ -16,11 +15,11 @@ module DBLista::User
     DBLista._post("/#{type}s/#{id}/boost", nil, @token)
   end
 
-  # Removes boost from a selected bot/server
+  # Usuwa boosta od bota/serwera
   #
-  # @param id [Integer] entity ID
-  # @param type [Symbol] type of entity (bot/server)
-  # @return [Hash] raw data from DBLista
+  # @param id [Integer] ID
+  # @param type [Symbol] typ (bot/serwer)
+  # @return [Hash] surowe dane od DBListy
   def delete_boost(id, type = :bot)
     DBLista._validate_id id
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)

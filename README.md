@@ -20,7 +20,7 @@ Albo zainstalować ręcznie poprzez gem:
 
 ## Użycie
 
-TODO: Użycie
+
 
 ## License
 

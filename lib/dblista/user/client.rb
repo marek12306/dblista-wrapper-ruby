@@ -5,15 +5,15 @@ require_relative './boosting'
 require_relative './rating'
 require_relative './voting'
 
-# User module - client + client modules
+# Moduł usera - klient + moduły klienta
 module DBLista::User
-  # DBLista user client
+  # Klient użytkownika DBListy
   #
-  # @example Server voting
+  # @example Głosowanie na serwer
   #   client = DBLista::User::Client.new "USER_TOKEN"
   #   response = client.vote(123456789012345678, :server)
   #
-  # @example Bot rating
+  # @example Ocena bota
   #   client = DBLista::User::Client.new "USER_TOKEN"
   #   response = client.rate(123456789012345678, 5, 'Nice bot')
   class Client
@@ -22,7 +22,7 @@ module DBLista::User
     include DBLista::User::Boosting
     include DBLista::User::Rating
 
-    # Allowed entity types to use
+    # Dozwolone typy
     ALLOWED_TYPES = %i[bot server].freeze
 
     attr_accessor :token

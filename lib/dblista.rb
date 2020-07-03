@@ -13,13 +13,13 @@ require_relative 'dblista/list/bot'
 require_relative 'dblista/list/server'
 require_relative 'dblista/user/client'
 
-# Main module
+# Główny moduł
 module DBLista
-  # DBLista error class
+  # Klasa błędu wrappera
   class Error < StandardError; end
-  # API path prefix
+  # Prefix do ścieżki endpointa API
   API_PATH = 'https://api.dblista.pl/v1'
-  # Regexp for checking if string is a number
+  # Regexp do sprawdzania czy string jest numerem
   IS_NUMBER = /^\d+$/.freeze
 
   # @!visibility private

@@ -4,16 +4,16 @@ require 'net/https'
 require 'json'
 
 module DBLista
-  # Class for updating bot statistics
+  # Klasa do aktualizowania statystyk
   #
-  # @example Hook bot stats to DBLista
+  # @example Automatyczne wysyłanie statystyk
   #   bot = Discordrb::Bot.new token: 'TOKEN'
   #   dbl = DBLista::Stats.new 'DBLISTA_TOKEN', bot
   class Stats
     attr_accessor :token
 
-    # @param token [String] DBLista bot token
-    # @param bot [Discordrb::Bot] discordrb bot for auto-sending statistics
+    # @param token [String] token dla bota od DBListy
+    # @param bot [Discordrb::Bot] instancja bota
     def initialize(token, bot = nil)
       raise DBLista::Error, DBLista::Errors::TOKEN_NOT_PROVIDED unless token
 
@@ -25,10 +25,10 @@ module DBLista
       end
     end
 
-    # Hooks discordrb bot to stats client instance
+    # Przyłącza bota napisanego w discordrb do klienta statystyk
     #
-    # @param bot [Discordrb::Bot] the bot
-    # @return [Thread] stat updating thread
+    # @param bot [Discordrb::Bot] bot
+    # @return [Thread] wątek który aktualizuje statystyki
     def hook_bot(bot)
       @thread.exit if @thread&.alive?
       @thread = Thread.new do
@@ -38,10 +38,10 @@ module DBLista
       @thread
     end
 
-    # Sends statistics to DBLista
+    # Wysyła statystyki do DBListy
     #
-    # @param members [Integer] member count
-    # @param servers [Integer] server count
+    # @param members [Integer] liczba userów
+    # @param servers [Integer] liczba serwerów
     # @return [Hash] raw data from DBLista
     def update_stats(members, servers)
       DBLista._post('/bots/stats', {

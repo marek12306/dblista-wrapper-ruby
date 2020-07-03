@@ -18,9 +18,21 @@ Albo zainstalować ręcznie poprzez gem:
 
     $ gem install dblista
 
-## Użycie
+## Przykładowe użycie
 
+Automatyczne statystyki:
 
+```ruby
+bot = Discordrb::Bot.new token: 'TOKEN'
+dbl = DBLista::Stats.new 'DBLISTA_TOKEN', bot
+```
+
+Pobieranie topki botów:
+
+```ruby
+top = DBLista::List::Bot.top
+puts top['data'].inspect
+```
 
 ## License
 

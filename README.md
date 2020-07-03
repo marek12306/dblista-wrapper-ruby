@@ -36,6 +36,6 @@ top = DBLista::List::Bot.top
 puts top['data'].inspect
 ```
 
-## License
+## Licencja
 
 Ten gem jest dostępny na licencji [MIT License](https://opensource.org/licenses/MIT). Rób z nim co chcesz.

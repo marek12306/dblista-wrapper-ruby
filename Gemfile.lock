@@ -7,7 +7,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -23,12 +23,13 @@ GEM
     rspec-support (3.9.3)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
   bundler (~> 1.17)
   dblista!
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.2)
 
 BUNDLED WITH

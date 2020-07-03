@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
+# User client - voting
 module DBLista::User
-  # Klient użytkownika - głosowanie
   module Voting
-  # Głosuje na wybranego bota/serwer
+  # Votes for a selected bot/server
   #
-  # @param id [Integer] ID
-  # @param type [Symbol] typ (bot/serwer)
-  # @return [Hash] surowe dane od DBListy
+  # @param id [Integer] entity ID
+  # @param type [Symbol] type of entity (bot/server)
+  # @return [Hash] raw data from DBLista
   def vote(id, type = :bot)
     DBLista._validate_id id
     raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)

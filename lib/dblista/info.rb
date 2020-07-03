@@ -4,34 +4,34 @@ require 'open-uri'
 require 'json'
 
 module DBLista
-  # Moduł do pobierania danych o userach, botach i serwerach
+  # Bot/server/user detailed information
   #
-  # @example Sprawdzanie informacji o userze
+  # @example Checking DBLista user information
   #   info = DBLista::Information.user 123456789012345678
   #   puts info['data']
   module Information
-    # Pobiera informacje o bocie od DBListy
+    # Fetches DBLista bot information
     #
-    # @param id [Integer] ID bota
-    # @return [Hash] surowe dane od DBListy
+    # @param id [Integer] bot ID
+    # @return [Hash] raw data from DBLista
     def self.bot(id)
       DBLista._validate_id id
       DBLista._get("/bots/#{id}")
     end
 
-    # Pobiera informacje o serwerze od DBListy
+    # Fetches DBLista server information
     #
-    # @param id [Integer] ID serwera
-    # @return [Hash] surowe dane od DBListy
+    # @param id [Integer] server ID
+    # @return [Hash] raw data from DBLista
     def self.server(id)
       DBLista._validate_id id
       DBLista._get("/servers/#{id}")
     end
 
-    # Pobiera informacje o userze z DBListy
+    # Fetches DBLista user information
     #
-    # @param id [Integer] ID usera
-    # @return [Hash] surowe dane od DBListy
+    # @param id [Integer] user ID
+    # @return [Hash] raw data from DBLista
     def self.user(id)
       DBLista._validate_id id
       DBLista._get("/users/#{id}")

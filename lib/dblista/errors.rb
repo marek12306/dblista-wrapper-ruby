@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-# Błędy
+# Error messages
 module DBLista::Errors
-  # Błąd wywoływany kiedy ID jest nie podane
+  # Raised when ID is not provided
   ID_NEEDED = 'You need to enter ID'
-  # Błąd wywoływany kiedy podana strona nie jest liczbą
+  # Raised when provided page is not an integer
   PAGE_INTEGER = 'Page must be an integer'
-  # Błąd wywoływany kiedy token nie jest podany
+  # Raised when token is not provided
   TOKEN_NOT_PROVIDED = 'Token is not provided'
-  # Błąd wywoływany kiedy typ nie jest prawdiłowy
+  # Raised when type symbol is invalid
   TYPE_NOT_ALLOWED = 'Only bot and server types are allowed'
-  # Błąd wywoływany kiedy zapytanie do wyszukiwarki nie jest podane
+  # Raised wheen search query is not provided
   QUERY_NOT_PROVIDED = 'Search query is not provided'
-  # Błąd wywoływany kiedy body (jakaś treść do wysłąnia do API) nie jest hashem
+  # Raised when body is not a hash
   BODY_HASH = 'Body must be a hash'
 end

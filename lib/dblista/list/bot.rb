@@ -4,27 +4,27 @@ require 'open-uri'
 require 'json'
 require 'cgi'
 
-# Listy
+# Lists
 #
-# @example Pobiera topkę serwerów
+# @example Fetch top 25 bots
 #   top = DBLista::List::Bot.top
 #   puts top['data'].inspect
 module DBLista::List
   # Bot lists
   module Bot
-    # Pobiera topkę botów
+    # Fetches top bots
     #
-    # @param page [Integer] strona
-    # @return [Hash] surowe dane od DBListy
+    # @param page [Integer] page
+    # @return [Hash] raw data from DBLista
     def self.top(page = 0)
       DBLista._page_integer page
       DBLista._get("/bots/list/top/#{page}")
     end
 
-    # Pobiera boty premium
+    # Fetches premium bots
     #
-    # @param page [Integer] strona
-    # @return [Hash] surowe dane od DBListy
+    # @param page [Integer] page
+    # @return [Hash] raw data from DBLista
     def self.premium(page = 0)
       DBLista._page_integer page
       DBLista._get("/bots/list/premium/#{page}")
@@ -32,22 +32,22 @@ module DBLista::List
 
     # Fetches unverified bots
     #
-    # @return [Hash] surowe dane od DBListy
+    # @return [Hash] raw data from DBLista
     def self.unverified
       DBLista._get('/bots/list/unverified')
     end
 
-    # Pobiera odrzucone boty
+    # Fetches rejected bots
     #
-    # @return [Hash] surowe dane od DBListy
+    # @return [Hash] raw data from DBLista
     def self.rejected
       DBLista._get('/bots/list/rejected')
     end
 
-    # Wyszukuje bota
+    # Bot search
     #
-    # @param query [String] zapytanie do wyszukiwarki
-    # @return [Hash] surowe dane od DBListy
+    # @param query [String] query search
+    # @return [Hash] raw data from DBLista
     def self.search(query)
       raise DBLista::Error, DBLista::Errors::QUERY_NOT_PROVIDED unless query
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module DBLista
-  # Wersja wrappera
+  # Wrapper version
   VERSION = '0.1.0'
 end

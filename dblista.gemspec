@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["marek12306@gmail.com"]
 
   spec.summary       = %q{Wrapper for dblista.pl API}
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/marek12306/dblista-wrapper-ruby"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.

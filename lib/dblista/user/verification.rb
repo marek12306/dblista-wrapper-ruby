@@ -13,7 +13,7 @@ module DBLista::User
   def approve(id, reason = 'Brak powodu')
     DBLista._validate_id id
 
-    DBLista._post("/botss/#{id}/approve?reason=#{CGI.escape reason}", nil, @token)
+    DBLista._post("/bots/#{id}/approve?reason=#{CGI.escape reason}", nil, @token)
     true
   end
 
@@ -25,7 +25,7 @@ module DBLista::User
   def reject(id, reason = 'Brak powodu')
     DBLista._validate_id id
 
-    DBLista._post("/botss/#{id}/reject?reason=#{CGI.escape reason}", nil, @token)
+    DBLista._post("/bots/#{id}/reject?reason=#{CGI.escape reason}", nil, @token)
     true
   end
 
@@ -36,7 +36,7 @@ module DBLista::User
   def set_pending(id)
     DBLista._validate_id id
 
-    DBLista._post("/botss/#{id}/set-pending", nil, @token)
+    DBLista._post("/bots/#{id}/set-pending", nil, @token)
     true
   end
   end

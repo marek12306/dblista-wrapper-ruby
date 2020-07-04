@@ -40,5 +40,19 @@ module DBLista::User
 
     DBLista._delete("/#{type}s/#{id}", nil, @token)
   end
+
+  # Manages user (bans or adds premium)
+  # Available only for DBLista staff
+  #
+  # @param id [Integer] user ID
+  # @param banned [Boolean] user ban status
+  # @param premium [Integer] days for premium
+  # @return [Hash] raw data from DBLista
+  def manage_user(id, banned = false, premium = 0)
+    DBLista._post("/users/#{id}/manage", {
+                    premium: premium,
+                    ban: banned
+                  }, @token)
+  end
   end
 end

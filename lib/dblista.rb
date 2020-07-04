@@ -12,6 +12,7 @@ require_relative 'dblista/errors'
 require_relative 'dblista/list/bot'
 require_relative 'dblista/list/server'
 require_relative 'dblista/user/client'
+require_relative 'dblista/helpers'
 
 # Main module
 module DBLista

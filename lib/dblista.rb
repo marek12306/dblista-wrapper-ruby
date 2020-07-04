@@ -34,7 +34,9 @@ module DBLista
     req['Content-Type'] = 'application/json'
     req['Authorization'] = token if token
     response = _https(uri).request(req)
-    JSON.parse response.body
+    result = JSON.parse response.body
+    raise DBLista::Error, result['error'].capitalize unless result['status'] == 'success'
+    result
   end
 
   # @!visibility private

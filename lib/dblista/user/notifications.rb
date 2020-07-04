@@ -14,7 +14,7 @@ module DBLista::User
   #
   # @return [Hash] raw data from DBLista
   def clear_notifications
-    DBLista._delete('/users/me/notifications/clear', @token)
+    DBLista._get('/users/me/notifications/clear', @token)
   end
   end
 end

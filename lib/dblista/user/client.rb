@@ -4,6 +4,7 @@ require_relative './actions'
 require_relative './boosting'
 require_relative './rating'
 require_relative './voting'
+require_relative './notifications'
 
 # User module - client + client modules
 module DBLista::User
@@ -21,6 +22,7 @@ module DBLista::User
     include DBLista::User::Actions
     include DBLista::User::Boosting
     include DBLista::User::Rating
+    include DBLista::User::Notifications
 
     # Allowed entity types to use
     ALLOWED_TYPES = %i[bot server].freeze

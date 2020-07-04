@@ -33,6 +33,9 @@ module DBLista::User
       @token = token
     end
 
+    # Fetches information about user
+    #
+    # @return [Hash] raw data from DBLista
     def me
       DBLista._get('/users/me', @token)
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# User client - rating
 module DBLista::User
+  # User client - rating
   module Rating
   # Sends rate for a selected bot/server
   #

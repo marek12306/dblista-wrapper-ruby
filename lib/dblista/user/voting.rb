@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# User client - voting
 module DBLista::User
+  # User client - voting
   module Voting
   # Votes for a selected bot/server
   #

@@ -2,8 +2,8 @@
 
 require 'json'
 
-# User client - actions
 module DBLista::User
+  # User client - actions
   module Actions
   # Adds bot/server to DBLista
   #

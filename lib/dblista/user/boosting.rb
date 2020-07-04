@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-##
-# User client - boosting
 module DBLista::User
+  # User client - boosting
   module Boosting
   # Boosts selected bot/server
   #

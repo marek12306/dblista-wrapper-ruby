@@ -14,4 +14,6 @@ module DBLista::Errors
   QUERY_NOT_PROVIDED = 'Search query is not provided'
   # Raised when body is not a hash
   BODY_HASH = 'Body must be a hash'
+  # Raised when token is invalid or expired
+  INVALID_TOKEN = 'Invalid or expired token'
 end

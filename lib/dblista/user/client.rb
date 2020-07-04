@@ -31,6 +31,8 @@ module DBLista::User
       raise DBLista::Error, DBLista::Errors::TOKEN_NOT_PROVIDED unless token
 
       @token = token
+
+      raise DBLista::Error, DBLista::Errors::INVALID_TOKEN unless me['status'] == 'success'
     end
 
     # Fetches information about user

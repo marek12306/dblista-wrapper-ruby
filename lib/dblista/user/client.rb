@@ -35,11 +35,18 @@ module DBLista::User
       raise DBLista::Error, DBLista::Errors::INVALID_TOKEN unless me['status'] == 'success'
     end
 
-    # Fetches information about user
+    # Fetches information about current user
     #
     # @return [Hash] raw data from DBLista
     def me
       DBLista._get('/users/me', @token)
+    end
+
+    # Fetches current user guilds
+    #
+    # @return [Hash] raw data from DBLista
+    def guilds
+      DBLista._get('/users/me/guilds', @token)
     end
   end
 end

@@ -32,5 +32,9 @@ module DBLista::User
 
       @token = token
     end
+
+    def me
+      DBLista._get('/users/me', @token)
+    end
   end
 end

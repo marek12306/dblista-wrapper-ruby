@@ -22,12 +22,6 @@ module DBLista
   # Regexp for checking if string is a number
   IS_NUMBER = /^\d+$/.freeze
 
-  # @!visibility private
-  def self._get(path)
-    req = URI.open("#{DBLista::API_PATH}#{path}")
-    JSON.parse req.read
-  end
-
   def self._https(uri)
     Net::HTTP.new(uri.host, uri.port).tap do |http|
       http.use_ssl = true
@@ -41,6 +35,13 @@ module DBLista
     req['Authorization'] = token if token
     response = _https(uri).request(req)
     JSON.parse response.body
+  end
+
+  # @!visibility private
+  def self._get(path, token = nil)
+    uri = URI("#{DBLista::API_PATH}#{path}")
+    req = Net::HTTP::Get.new(uri)
+    _handle_request(req, uri, token, nil)
   end
 
   # @!visibility private

@@ -6,6 +6,8 @@ module DBLista::Errors
   ID_NEEDED = 'You need to enter ID'
   # Raised when provided page is not an integer
   PAGE_INTEGER = 'Page must be an integer'
+  # Raised when rank is not an integer
+  RANK_INTEGER = 'Rank must be an integer'
   # Raised when token is not provided
   TOKEN_NOT_PROVIDED = 'Token is not provided'
   # Raised when type symbol is invalid

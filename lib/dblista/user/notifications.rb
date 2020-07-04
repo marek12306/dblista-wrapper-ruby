@@ -16,5 +16,19 @@ module DBLista::User
   def clear_notifications
     DBLista._get('/users/me/notifications/clear', @token)
   end
+
+  def send_notification(id, details, url = '#')
+    DBLista._validate_id id
+    DBLista._post("/users/#{id}/notifications", {
+                    text: details,
+                    url: url || '#'
+                  }, @token)
+  end
+
+  def send_group_notification(rank, details, url = '#')
+    DBLista._post("/users/group/#{rank}/notifications", {
+      text: details,
+      url: url || '#'
+    }, @token)
   end
 end

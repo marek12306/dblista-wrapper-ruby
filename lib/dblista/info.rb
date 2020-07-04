@@ -8,7 +8,7 @@ module DBLista
   #
   # @example Checking DBLista user information
   #   info = DBLista::Information.user 123456789012345678
-  #   puts info['data']
+  #   puts info
   module Information
     # Fetches DBLista bot information
     #

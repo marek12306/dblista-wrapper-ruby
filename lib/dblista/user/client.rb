@@ -34,7 +34,7 @@ module DBLista::User
 
       @token = token
 
-      raise DBLista::Error, DBLista::Errors::INVALID_TOKEN unless me['status'] == 'success'
+      me
     end
 
     # Fetches information about current user

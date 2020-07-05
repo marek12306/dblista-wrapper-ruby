@@ -38,4 +38,4 @@ puts top
 
 ## Licencja
 
-Ten gem jest dostępny na licencji [MIT License](https://opensource.org/licenses/MIT). Rób z nim co chcesz.
+Ten gem jest dostępny na licencji [MIT License](https://opensource.org/licenses/MIT). Rób z tym co chcesz.

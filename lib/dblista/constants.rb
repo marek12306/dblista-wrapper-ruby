@@ -3,18 +3,32 @@
 module DBLista
   # Tags
   module Tags
-    MODERATION = :moderacja
-    TOOLS = :narzędzia
-    MUSIC = :muzyka
-    DASHBOARD = :panel
-    FUN = :rozrywka
-    LEVELS = :poziomy
-    GAMES = :gry
-    ROLEPLAY = :roleplay
-    ECONOMY = :ekonomia
-    ANIME = :anime
-    NSFW = :nsfw
-    OTHER = :inne
+    # Bot tags
+    module Bot
+      MODERATION = :moderacja
+      TOOLS = :narzędzia
+      MUSIC = :muzyka
+      DASHBOARD = :panel
+      FUN = :rozrywka
+      LEVELS = :poziomy
+      GAMES = :gry
+      ROLEPLAY = :roleplay
+      ECONOMY = :ekonomia
+      ANIME = :anime
+      NSFW = :nsfw
+      OTHER = :inne
+    end
+    # Server tags
+    module Server
+      COMMUNITY = :community
+      PROGRAMMING = :programowanie
+      GAMES = :gry
+      YOUTUBE = :youtube
+      HOBBY = :hobby
+      ANIME = :anime
+      ROLEPLAY = :roleplay
+      OTHER = :inne
+    end
   end
   # Permissions
   module Permissions

@@ -58,4 +58,11 @@ module DBLista
     SERENITY = :serenity
     INNA = :inna
   end
+  # Card style
+  module CardStyle
+    GREEN = :green
+    ORANGE = :orange
+    PINK = :pink
+    BLUE = :blue
+  end
 end

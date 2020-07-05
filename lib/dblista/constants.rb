@@ -2,16 +2,18 @@
 
 module DBLista
   # Tags
-  TAGS = %i[moderacja
-            narzędzia
-            muzyka
-            panel
-            rozrywka
-            poziomy
-            gry
-            roleplay
-            ekonomia
-            anime
-            nsfw
-            inne].freeze
+  module Tags
+    MODERATION = :moderacja
+    TOOLS = :narzędzia
+    MUSIC = :muzyka
+    DASHBOARD = :panel
+    FUN = :rozrywka
+    LEVELS = :poziomy
+    GAMES = :gry
+    ROLEPLAY = :roleplay
+    ECONOMY = :ekonomia
+    ANIME = :anime
+    NSFW = :nsfw
+    OTHER = :inne
+  end
 end

@@ -67,7 +67,7 @@ module DBLista::List
     def self.search(query)
       raise DBLista::Error, DBLista::Errors::QUERY_NOT_PROVIDED unless query
 
-      DBLista._get("/bots/search/#{CGI.escape query}")
+      DBLista._get("/bots/search/#{CGI.escape query.to_s}")
     end
   end
 end

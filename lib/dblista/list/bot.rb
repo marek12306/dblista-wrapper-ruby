@@ -44,6 +44,22 @@ module DBLista::List
       DBLista._get('/bots/list/rejected')
     end
 
+    # Fetches all bots
+    #
+    # @return [Array] array of raw bot data from DBLista
+    def self.all
+      bots = []
+      i = 0
+      loop do
+        page = DBLista::List::Bot.top(i)
+        break if page.length.zero?
+
+        bots += page
+        i += 1
+      end
+      bots
+    end
+
     # Bot search
     #
     # @param query [String] query search

@@ -23,6 +23,22 @@ module DBLista::List
       DBLista._get("/servers/list/premium/#{page}")
     end
 
+    # Fetches all servers
+    #
+    # @return [Array] array of raw server data from DBLista
+    def self.all
+      servers = []
+      i = 0
+      loop do
+        page = DBLista::List::Server.top(i)
+        break if page.length.zero?
+
+        servers += page
+        i += 1
+      end
+      servers
+    end
+
     # Server search
     #
     # @param query [String] search query

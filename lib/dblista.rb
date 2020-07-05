@@ -82,8 +82,6 @@ module DBLista
 
   # @!visibility private
   def self._limit_integer(input)
-    puts input
-    puts input.is_a?(Integer)
     raise DBLista::Error, DBLista::Errors::LIMIT_INTEGER unless input.is_a?(Integer)
   end
 end

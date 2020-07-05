@@ -33,7 +33,7 @@ Pobieranie topki botów:
 
 ```ruby
 top = DBLista::List::Bot.top
-puts top['data'].inspect
+puts top.inspect
 ```
 
 ## Licencja

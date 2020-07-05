@@ -12,7 +12,7 @@ module DBLista::User
   # @return [Hash] raw data from DBLista
   def add(body, type = 'bot')
     raise DBLista::Error, DBLista::Errors::BODY_HASH unless body.is_a?(Hash)
-    raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless ALLOWED_TYPES.include?(type)
+    raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
 
     DBLista._post("/#{type}s", body, @token)
   end

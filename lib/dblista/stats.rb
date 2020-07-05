@@ -42,12 +42,13 @@ module DBLista
     #
     # @param members [Integer] member count
     # @param servers [Integer] server count
-    # @return [Hash] raw data from DBLista
+    # @return [Boolean] true if operation succeded
     def update_stats(members, servers)
       DBLista._post('/bots/stats', {
                       'servers' => servers,
                       'members' => members
                     }, @token)
+      true
     end
   end
 end

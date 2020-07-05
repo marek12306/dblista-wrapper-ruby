@@ -16,4 +16,11 @@ module DBLista
     NSFW = :nsfw
     OTHER = :inne
   end
+  # Permissions
+  module Permissions
+    USER = 0
+    MODERATOR = 1
+    BIG_MODERATOR = 2
+    ADMINISTRATOR = 3
+  end
 end

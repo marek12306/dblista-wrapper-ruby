@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'zache'
+
 require_relative './actions'
 require_relative './boosting'
 require_relative './rating'
@@ -35,6 +37,7 @@ module DBLista::User
       raise DBLista::Error, DBLista::Errors::TOKEN_NOT_PROVIDED unless token
 
       @token = token
+      @cache = Zache.new
 
       me
     end
@@ -43,14 +46,18 @@ module DBLista::User
     #
     # @return [Hash] raw data from DBLista
     def me
-      DBLista._get('/users/me', @token)
+      @cache.get(:guilds, lifetime: DBLista::CACHE_LIFETIME) do
+        DBLista._get('/users/me', @token)
+      end
     end
 
     # Fetches current user guilds
     #
     # @return [Hash] raw data from DBLista
     def guilds
-      DBLista._get('/users/me/guilds', @token)
+      @cache.get(:guilds, lifetime: DBLista::CACHE_LIFETIME) do
+        DBLista._get('/users/me/guilds', @token)
+      end
     end
   end
 end

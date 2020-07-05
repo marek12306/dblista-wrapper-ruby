@@ -37,4 +37,25 @@ module DBLista
     BIG_MODERATOR = 2
     ADMINISTRATOR = 10
   end
+  # Bot libraries
+  module Libraries
+    DISCORD_JS = :'discord.js'
+    ERIS = :eris
+    DSHARP_PLUS = :DSharpPlus
+    DISCORD_NET = :'Discord.Net'
+    DISCORDGO = :DiscordGo
+    DISGORD = :DisGord
+    JDA = :JDA
+    DISCORD4J = :Discord4J
+    JAVACORD = :Javacord
+    AEGIS_CPP = :'aegis.cpp'
+    NYXX = :nyxx
+    RESTCORD = :RestCord
+    DISCORD_PY = :'discord.py'
+    DISCO = :disco
+    DISCORDRB = :discordrb
+    DISCORDRS = :'discord-rs'
+    SERENITY = :serenity
+    INNA = :inna
+  end
 end

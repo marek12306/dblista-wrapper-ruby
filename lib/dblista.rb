@@ -38,6 +38,7 @@ module DBLista
     response = _https(uri).request(req)
     result = JSON.parse response.body
     raise DBLista::Error, result['error'].capitalize unless result['status'] == 'success'
+
     result['data']
   end
 

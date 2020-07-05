@@ -16,7 +16,9 @@ module DBLista
     # @return [Hash] raw data from DBLista
     def self.bot(id)
       DBLista._validate_id id
-      DBLista._get("/bots/#{id}")
+      DBLista._cache(id.to_s.to_sym) do
+        DBLista._get("/bots/#{id}")
+      end
     end
 
     # Fetches DBLista server information
@@ -25,7 +27,9 @@ module DBLista
     # @return [Hash] raw data from DBLista
     def self.server(id)
       DBLista._validate_id id
-      DBLista._get("/servers/#{id}")
+      DBLista._cache(id.to_s.to_sym) do
+        DBLista._get("/servers/#{id}")
+      end
     end
 
     # Fetches DBLista user information
@@ -34,7 +38,9 @@ module DBLista
     # @return [Hash] raw data from DBLista
     def self.user(id)
       DBLista._validate_id id
-      DBLista._get("/users/#{id}")
+      DBLista._cache(id.to_s.to_sym) do
+        DBLista._get("/users/#{id}")
+      end
     end
   end
 end

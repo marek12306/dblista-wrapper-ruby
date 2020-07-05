@@ -4,6 +4,7 @@ require 'net/http'
 require 'net/https'
 require 'open-uri'
 require 'json'
+require 'zache'
 
 require_relative 'dblista/version'
 require_relative 'dblista/info'
@@ -23,6 +24,11 @@ module DBLista
   API_PATH = 'https://api.dblista.pl/v1'
   # Regexp for checking if string is a number
   IS_NUMBER = /^\d+$/.freeze
+
+  # Cache
+  Cache = Zache.new
+  # Cache entry lifetime
+  CACHE_LIFETIME = 15
 
   def self._https(uri)
     Net::HTTP.new(uri.host, uri.port).tap do |http|
@@ -83,5 +89,9 @@ module DBLista
   # @!visibility private
   def self._limit_integer(input)
     raise DBLista::Error, DBLista::Errors::LIMIT_INTEGER unless input.is_a?(Integer)
+  end
+
+  def self._cache(name)
+    DBLista::Cache.get(name.to_sym, lifetime: DBLista::CACHE_LIFETIME) { yield }
   end
 end

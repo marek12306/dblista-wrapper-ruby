@@ -13,7 +13,9 @@ module DBLista::List
     def self.top(page = 0, limit = 10)
       DBLista._page_integer page
       DBLista._limit_integer limit
-      DBLista._get("/servers/list/top/#{page}?limit=#{limit}")
+      DBLista._cache("serverstop#{page}-#{limit}") do
+        DBLista._get("/servers/list/top/#{page}?limit=#{limit}")
+      end
     end
 
     # Fetches premium servers
@@ -24,14 +26,18 @@ module DBLista::List
     def self.premium(page = 0, limit = 10)
       DBLista._page_integer page
       DBLista._limit_integer limit
-      DBLista._get("/servers/list/premium/#{page}?limit=#{limit}")
+      DBLista._cache("serverspremium#{page}-#{limit}") do
+        DBLista._get("/servers/list/premium/#{page}?limit=#{limit}")
+      end
     end
 
     # Fetches all servers
     #
     # @return [Array] array of raw server data from DBLista
     def self.all
-      DBLista::List::Server.top(0, 100_000_000)
+      DBLista._cache(:serversall) do
+        DBLista::List::Server.top(0, 100_000_000)
+      end
     end
 
     # Server search
@@ -41,7 +47,9 @@ module DBLista::List
     def self.search(query)
       raise DBLista::Error, DBLista::Errors::QUERY_NOT_PROVIDED unless query
 
-      DBLista._get("/servers/search/#{CGI.escape query.to_s}")
+      DBLista._cache("serversearch#{query}") do
+        DBLista._get("/servers/search/#{CGI.escape query.to_s}")
+      end
     end
   end
 end

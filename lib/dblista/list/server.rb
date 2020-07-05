@@ -8,35 +8,30 @@ module DBLista::List
     # Fetches top servers
     #
     # @param page [Integer] page
+    # @param limit [Integer] limit of servers per page
     # @return [Hash] raw data from DBLista
-    def self.top(page = 0)
+    def self.top(page = 0, limit = 10)
       DBLista._page_integer page
-      DBLista._get("/servers/list/top/#{page}")
+      DBLista._limit_integer limit
+      DBLista._get("/servers/list/top/#{page}?limit=#{limit}")
     end
 
     # Fetches premium servers
     #
     # @param page [Integer] page
+    # @param limit [Integer] limit of servers per page
     # @return [Hash] raw data from DBLista
-    def self.premium(page = 0)
+    def self.premium(page = 0, limit = 10)
       DBLista._page_integer page
-      DBLista._get("/servers/list/premium/#{page}")
+      DBLista._limit_integer limit
+      DBLista._get("/servers/list/premium/#{page}?limit=#{limit}")
     end
 
     # Fetches all servers
     #
     # @return [Array] array of raw server data from DBLista
     def self.all
-      servers = []
-      i = 0
-      loop do
-        page = DBLista::List::Server.top(i)
-        break if page.length.zero?
-
-        servers += page
-        i += 1
-      end
-      servers
+      DBLista::List::Server.top(0, 100_000_000)
     end
 
     # Server search

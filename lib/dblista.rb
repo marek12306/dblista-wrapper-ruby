@@ -78,4 +78,11 @@ module DBLista
   def self._page_integer(input)
     raise DBLista::Error, DBLista::Errors::PAGE_INTEGER unless input.is_a?(Integer)
   end
+
+  # @!visibility private
+  def self._limit_integer(input)
+    puts input
+    puts input.is_a?(Integer)
+    raise DBLista::Error, DBLista::Errors::LIMIT_INTEGER unless input.is_a?(Integer)
+  end
 end

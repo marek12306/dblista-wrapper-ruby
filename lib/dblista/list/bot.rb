@@ -15,19 +15,23 @@ module DBLista::List
     # Fetches top bots
     #
     # @param page [Integer] page
+    # @param limit [Integer] limit of bots per page
     # @return [Hash] raw data from DBLista
-    def self.top(page = 0)
+    def self.top(page = 0, limit = 10)
       DBLista._page_integer page
-      DBLista._get("/bots/list/top/#{page}")
+      DBLista._limit_integer limit
+      DBLista._get("/bots/list/top/#{page}?limit=#{limit}")
     end
 
     # Fetches premium bots
     #
     # @param page [Integer] page
+    # @param limit [Integer] limit of bots per page
     # @return [Hash] raw data from DBLista
-    def self.premium(page = 0)
+    def self.premium(page = 0, limit = 10)
       DBLista._page_integer page
-      DBLista._get("/bots/list/premium/#{page}")
+      DBLista._limit_integer limit
+      DBLista._get("/bots/list/premium/#{page}?limit=#{limit}")
     end
 
     # Fetches unverified bots
@@ -48,16 +52,7 @@ module DBLista::List
     #
     # @return [Array] array of raw bot data from DBLista
     def self.all
-      bots = []
-      i = 0
-      loop do
-        page = DBLista::List::Bot.top(i)
-        break if page.length.zero?
-
-        bots += page
-        i += 1
-      end
-      bots
+      DBLista::List::Bot.top(0, 100_000_000)
     end
 
     # Bot search

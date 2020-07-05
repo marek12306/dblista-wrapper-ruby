@@ -35,6 +35,6 @@ module DBLista
     USER = 0
     MODERATOR = 1
     BIG_MODERATOR = 2
-    ADMINISTRATOR = 3
+    ADMINISTRATOR = 10
   end
 end

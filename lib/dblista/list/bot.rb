@@ -8,7 +8,7 @@ require 'cgi'
 #
 # @example Fetch top 25 bots
 #   top = DBLista::List::Bot.top
-#   puts top.inspect
+#   puts top
 module DBLista::List
   # Bot lists
   module Bot

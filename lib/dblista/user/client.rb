@@ -13,11 +13,11 @@ module DBLista::User
   #
   # @example Server voting
   #   client = DBLista::User::Client.new "USER_TOKEN"
-  #   response = client.vote(123456789012345678, :server)
+  #   client.vote(123456789012345678, :server)
   #
   # @example Bot rating
   #   client = DBLista::User::Client.new "USER_TOKEN"
-  #   response = client.rate(123456789012345678, 5, 'Nice bot')
+  #   client.rate(123456789012345678, 5, 'Nice bot')
   class Client
     include DBLista::User::Voting
     include DBLista::User::Actions

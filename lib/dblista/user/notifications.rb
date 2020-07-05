@@ -12,9 +12,10 @@ module DBLista::User
 
   # Clears user notifications
   #
-  # @return [Hash] raw data from DBLista
+  # @return [Boolean] true if operation succeded
   def clear_notifications
     DBLista._get('/users/me/notifications/clear', @token)
+    true
   end
 
   # Sends notification to specified user
@@ -23,13 +24,14 @@ module DBLista::User
   # @param rank [Integer] user ID
   # @param details [String] details (content)
   # @param url [String] url to redirect if clicked
-  # @return [Hash] raw data from DBLista
+  # @return [Boolean] true if operation succeded
   def send_notification(id, details, url = '#')
     DBLista._validate_id id
     DBLista._post("/users/#{id}/notifications", {
                     text: details,
                     url: url || '#'
                   }, @token)
+    true
   end
 
   # Sends notification to specified group (rank)
@@ -38,12 +40,13 @@ module DBLista::User
   # @param rank [Integer] rank ID
   # @param details [String] details (content)
   # @param url [String] url to redirect if clicked
-  # @return [Hash] raw data from DBLista
+  # @return [Boolean] true if operation succeded
   def send_group_notification(rank, details, url = '#')
     DBLista._post("/users/group/#{rank}/notifications", {
                     text: details,
                     url: url || '#'
                   }, @token)
+    true
   end
   end
 end

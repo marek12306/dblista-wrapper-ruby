@@ -58,5 +58,13 @@ module DBLista::User
                     }, @token)
       true
     end
+    # Generates token for bot
+    #
+    # @param id [Integer] bot ID
+    # @return [Hash] raw data from DBLista
+    def generate_token(id)
+      DBLista._validate_id id
+      DBLista._get("/bots/stats/#{id}?token=#{@token}")
+    end
   end
 end

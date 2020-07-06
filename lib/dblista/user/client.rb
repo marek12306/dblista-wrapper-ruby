@@ -8,6 +8,7 @@ require_relative './rating'
 require_relative './voting'
 require_relative './notifications'
 require_relative './verification'
+require_relative './info'
 
 # User module - client + client modules
 module DBLista::User
@@ -27,6 +28,7 @@ module DBLista::User
     include DBLista::User::Rating
     include DBLista::User::Notifications
     include DBLista::User::Verification
+    include DBLista::User::Information
 
     # Allowed entity types to use
     ALLOWED_TYPES = %i[bot server].freeze

@@ -56,7 +56,7 @@ module DBLista::User
     # Fetches current user guilds
     #
     # @return [Hash] raw data from DBLista
-    def guilds
+    def joined_guilds
       @cache.get(:guilds, lifetime: DBLista::CACHE_LIFETIME) do
         DBLista._get('/users/me/guilds', @token)
       end

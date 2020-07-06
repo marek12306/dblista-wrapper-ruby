@@ -2,7 +2,14 @@
 
 [Dokumentacja](https://www.rubydoc.info/github/marek12306/dblista-wrapper-ruby)
 
-Gem pozwalający na komunikację z API DBListy. Pozwala m.in. na automatyczne wysyłanie statystyk (dla botów napisanych w Discordrb), CRUD botów i serwerów oraz pare innych rzeczy.
+Gem pozwalający na komunikację z API DBListy.
+
+Pozwala na:
+
+- Automatyczne/ręczne wysyłanie statystyk
+- Kontrolowanie kontem użytkownika
+- Pobieranie różnych list botów oraz serwerów oraz wyszukiwanie
+- Pobieranie informacji o botach, serwerach oraz użytkownikach
 
 ## Instalacja
 

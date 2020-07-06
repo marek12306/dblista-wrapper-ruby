@@ -20,7 +20,6 @@ module DBLista::User
                     }, @token)
       true
     end
-
     # Removes rate for a selected bot/server
     #
     # @param id [Integer] entity ID
@@ -36,7 +35,7 @@ module DBLista::User
     end
     # Reports rate of a selected bot/server
     #
-    # @param id [Integer] entity ID
+    # @param id [Integer] ID
     # @param target_id [Integer] target user to remove rate from (for owners only)
     # @param report_reason [String] reason of report (details)
     # @param type [Symbol] type of entity (bot/server)
@@ -49,6 +48,30 @@ module DBLista::User
                                                                    reportReason: report_reason.to_s
                                                                  }, @token)
       true
+    end
+    # Fetches all rate reports
+    #
+    # @return [Hash] raw data from DBLista
+    def reports
+      DBLista._get('/reports')
+    end
+    # Deletes rate report
+    #
+    # @param id [Integer] report ID
+    # @return [Hash] raw data from DBLista
+    def delete_report(id, type = :bot)
+      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+
+      DBLista._delete("/reports/#{id}", nil, @token)
+      true
+    end
+    # Generates token for bot
+    #
+    # @param id [Integer] bot ID
+    # @return [Hash] raw data from DBLista
+    def generate_token(id)
+      DBLista._validate_id id
+      DBLista._get("/bots/stats/#{id}?token=#{@token}")
     end
   end
 end

@@ -58,6 +58,7 @@ module DBLista::User
                     }, @token)
       true
     end
+
     # Generates token for bot
     #
     # @param id [Integer] bot ID
@@ -65,6 +66,15 @@ module DBLista::User
     def generate_token(id)
       DBLista._validate_id id
       DBLista._get("/bots/stats/#{id}?token=#{@token}")
+    end
+
+    # Resets token for bot
+    #
+    # @param id [Integer] bot ID
+    # @return [Hash] raw data from DBLista
+    def reset_token(id)
+      DBLista._validate_id id
+      DBLista._post("/bots/stats/#{id}/reset", nil, @token)
     end
   end
 end

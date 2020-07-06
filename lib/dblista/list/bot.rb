@@ -61,7 +61,7 @@ module DBLista::List
     # @return [Array] array of raw bot data from DBLista
     def self.all
       DBLista._cache(:botsall) do
-        DBLista::List::Bot.top(0, 100_000_000)
+        DBLista._get("/bots/list/top/0?limit=1000000")
       end
     end
 

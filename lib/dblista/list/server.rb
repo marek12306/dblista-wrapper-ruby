@@ -36,7 +36,7 @@ module DBLista::List
     # @return [Array] array of raw server data from DBLista
     def self.all
       DBLista._cache(:serversall) do
-        DBLista._get("/servers/list/top/0?limit=1000000")
+        DBLista._get('/servers/list/top/0?limit=1000000')
       end
     end
 

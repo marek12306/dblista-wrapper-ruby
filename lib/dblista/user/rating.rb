@@ -20,6 +20,7 @@ module DBLista::User
                     }, @token)
       true
     end
+
     # Removes rate for a selected bot/server
     #
     # @param id [Integer] entity ID
@@ -33,6 +34,7 @@ module DBLista::User
       DBLista._delete("/#{type}s/#{id}/rate/#{target_id}", nil, @token)
       true
     end
+
     # Reports rate of a selected bot/server
     #
     # @param id [Integer] ID
@@ -49,12 +51,14 @@ module DBLista::User
                                                                  }, @token)
       true
     end
+
     # Fetches all rate reports
     #
     # @return [Hash] raw data from DBLista
     def reports
       DBLista._get('/reports')
     end
+
     # Deletes rate report
     #
     # @param id [Integer] report ID

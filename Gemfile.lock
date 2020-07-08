@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dblista (0.6.1)
+    dblista (0.6.2)
       zache
 
 GEM

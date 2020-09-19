@@ -8,7 +8,7 @@ Pozwala na:
 
 - Automatyczne/ręczne wysyłanie statystyk
 - Kontrolowanie kontem użytkownika
-- Pobieranie różnych list botów oraz serwerów oraz wyszukiwanie
+- Pobieranie różnych list botów, serwerów oraz ich wyszukiwanie
 - Pobieranie informacji o botach, serwerach oraz użytkownikach
 
 ## Instalacja

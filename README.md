@@ -1,10 +1,14 @@
-UWAGA: Gem ten nie jest już rozwijany. Nie odpowiadam za żadne błędy wywołane tym gemem.
--------------------------------------
 # DList (kiedyś DBLista) Ruby wrapper [![Gem Version](https://badge.fury.io/rb/dblista.svg)](https://badge.fury.io/rb/dblista)
 
 [Dokumentacja](https://www.rubydoc.info/github/marek12306/dblista-wrapper-ruby)
 
-Gem pozwalający na komunikację z API DList.
+Gem pozwalający na komunikację i eksperymentowanie z API DListy.
+
+Cechy:
+
+- Implementacja prawie wszystkich dostępnych endpointów w API
+- Prosta obsługa
+- Obszerna dokumentacja
 
 Pozwala na:
 

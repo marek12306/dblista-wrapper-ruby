@@ -2,57 +2,57 @@
 
 require 'json'
 
-module DBLista::User
+module DList::User
   # User client - actions
   module Actions
-    # Adds bot/server to DBLista
+    # Adds bot/server to DList
     #
     # @param body [Hash] raw body to send
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def add(body, type = 'bot')
-      raise DBLista::Error, DBLista::Errors::BODY_HASH unless body.is_a?(Hash)
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      raise DList::Error, DList::Errors::BODY_HASH unless body.is_a?(Hash)
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._post("/#{type}s", body, @token)
+      DList._post("/#{type}s", body, @token)
       true
     end
 
-    # Edits bot/server in DBLista
+    # Edits bot/server in DList
     #
     # @param body [Hash] raw body to send
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def edit(body, type = :bot)
-      raise DBLista::Error, DBLista::Errors::BODY_HASH unless body.is_a?(Hash)
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      raise DList::Error, DList::Errors::BODY_HASH unless body.is_a?(Hash)
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._put("/#{type}s", body, @token)
+      DList._put("/#{type}s", body, @token)
       true
     end
 
-    # Deletes bot/server from DBLista
+    # Deletes bot/server from DList
     #
     # @param id [Integer] entity ID
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def delete(id, type = :bot)
-      DBLista._validate_id id
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      DList._validate_id id
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._delete("/#{type}s/#{id}", nil, @token)
+      DList._delete("/#{type}s/#{id}", nil, @token)
       true
     end
 
     # Manages user (bans or adds premium)
-    # Available only for DBLista staff
+    # Available only for DList staff
     #
     # @param id [Integer] user ID
     # @param banned [Boolean] user ban status
     # @param premium [Integer] days for premium
     # @return [Boolean] true if operation succeded
     def manage_user(id, banned = false, premium = 0)
-      DBLista._post("/users/#{id}/manage", {
+      DList._post("/users/#{id}/manage", {
                       premium: premium,
                       ban: banned
                     }, @token)
@@ -62,19 +62,19 @@ module DBLista::User
     # Generates token for bot
     #
     # @param id [Integer] bot ID
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def generate_token(id)
-      DBLista._validate_id id
-      DBLista._get("/bots/stats/#{id}?token=#{@token}")
+      DList._validate_id id
+      DList._get("/bots/stats/#{id}?token=#{@token}")
     end
 
     # Resets token for bot
     #
     # @param id [Integer] bot ID
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def reset_token(id)
-      DBLista._validate_id id
-      DBLista._post("/bots/stats/#{id}/reset", nil, @token)
+      DList._validate_id id
+      DList._post("/bots/stats/#{id}/reset", nil, @token)
     end
   end
 end

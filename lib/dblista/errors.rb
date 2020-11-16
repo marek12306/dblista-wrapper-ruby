@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Error messages
-module DBLista::Errors
+module DList::Errors
   # Raised when ID is not provided
   ID_NEEDED = 'You need to enter ID'
   # Raised when provided page is not an integer

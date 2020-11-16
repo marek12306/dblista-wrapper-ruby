@@ -35,13 +35,13 @@ Automatyczne statystyki:
 
 ```ruby
 bot = Discordrb::Bot.new token: 'TOKEN'
-dbl = DBLista::Stats.new 'DBLISTA_TOKEN', bot
+dbl = DList::Stats.new 'DLIST_TOKEN', bot
 ```
 
 Pobieranie topki botów:
 
 ```ruby
-top = DBLista::List::Bot.top
+top = DList::List::Bot.top
 puts top
 ```
 

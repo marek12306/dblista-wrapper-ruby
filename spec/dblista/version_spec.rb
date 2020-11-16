@@ -3,8 +3,8 @@
 require 'dblista'
 require 'dblista_spec'
 
-describe DBLista do
+describe DList do
   it 'have version' do
-    expect(DBLista::VERSION).to be_an(String)
+    expect(DList::VERSION).to be_an(String)
   end
 end

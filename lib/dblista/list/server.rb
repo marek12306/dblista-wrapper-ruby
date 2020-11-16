@@ -2,19 +2,19 @@
 
 require 'cgi'
 
-module DBLista::List
+module DList::List
   # Server lists
   module Server
     # Fetches top servers
     #
     # @param page [Integer] page
     # @param limit [Integer] limit of servers per page
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def self.top(page = 0, limit = 10)
-      DBLista._page_integer page
-      DBLista._limit_integer limit
-      DBLista._cache("serverstop#{page}-#{limit}") do
-        DBLista._get("/servers/list/top/#{page}?limit=#{limit}")
+      DList._page_integer page
+      DList._limit_integer limit
+      DList._cache("serverstop#{page}-#{limit}") do
+        DList._get("/servers/list/top/#{page}?limit=#{limit}")
       end
     end
 
@@ -22,33 +22,33 @@ module DBLista::List
     #
     # @param page [Integer] page
     # @param limit [Integer] limit of servers per page
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def self.premium(page = 0, limit = 10)
-      DBLista._page_integer page
-      DBLista._limit_integer limit
-      DBLista._cache("serverspremium#{page}-#{limit}") do
-        DBLista._get("/servers/list/premium/#{page}?limit=#{limit}")
+      DList._page_integer page
+      DList._limit_integer limit
+      DList._cache("serverspremium#{page}-#{limit}") do
+        DList._get("/servers/list/premium/#{page}?limit=#{limit}")
       end
     end
 
     # Fetches all servers
     #
-    # @return [Array] array of raw server data from DBLista
+    # @return [Array] array of raw server data from DList
     def self.all
-      DBLista._cache(:serversall) do
-        DBLista._get('/servers/list/top/0?limit=1000000')
+      DList._cache(:serversall) do
+        DList._get('/servers/list/top/0?limit=1000000')
       end
     end
 
     # Server search
     #
     # @param query [String] search query
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def self.search(query)
-      raise DBLista::Error, DBLista::Errors::QUERY_NOT_PROVIDED unless query
+      raise DList::Error, DList::Errors::QUERY_NOT_PROVIDED unless query
 
-      DBLista._cache("serversearch#{query}") do
-        DBLista._get("/servers/search/#{CGI.escape query.to_s}")
+      DList._cache("serversearch#{query}") do
+        DList._get("/servers/search/#{CGI.escape query.to_s}")
       end
     end
   end

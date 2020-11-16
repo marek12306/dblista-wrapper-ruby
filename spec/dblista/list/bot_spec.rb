@@ -1,36 +1,36 @@
 # frozen_string_literal: true
 
-describe DBLista::List::Bot do
+describe DList::List::Bot do
   it 'fetches top bots' do
-    expect(DBLista::List::Bot.top)
+    expect(DList::List::Bot.top)
       .to include({
                     'status' => eq('success')
                   })
   end
 
   it 'fetches premium bots' do
-    expect(DBLista::List::Bot.premium)
+    expect(DList::List::Bot.premium)
       .to include({
                     'status' => eq('success')
                   })
   end
 
   it 'fetches unverified bots' do
-    expect(DBLista::List::Bot.unverified)
+    expect(DList::List::Bot.unverified)
       .to include({
                     'status' => eq('success')
                   })
   end
 
   it 'fetches rejected bots' do
-    expect(DBLista::List::Bot.rejected)
+    expect(DList::List::Bot.rejected)
       .to include({
                     'status' => eq('success')
                   })
   end
 
   it 'searches for bots' do
-    expect(DBLista::List::Bot.search('bot'))
+    expect(DList::List::Bot.search('bot'))
       .to include({
                     'status' => eq('success')
                   })

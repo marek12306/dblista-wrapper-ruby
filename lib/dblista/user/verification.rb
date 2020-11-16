@@ -2,7 +2,7 @@
 
 require 'cgi'
 
-module DBLista::User
+module DList::User
   # User client - verification (only for staff)
   module Verification
     # Approves specified bot
@@ -11,9 +11,9 @@ module DBLista::User
     # @param reason [String] reason for approving
     # @return [Boolean] true if operation succeded
     def approve(id, reason = 'Brak powodu')
-      DBLista._validate_id id
+      DList._validate_id id
 
-      DBLista._post("/bots/verify/#{id}/approve?reason=#{CGI.escape reason}", nil, @token)
+      DList._post("/bots/verify/#{id}/approve?reason=#{CGI.escape reason}", nil, @token)
       true
     end
 
@@ -23,9 +23,9 @@ module DBLista::User
     # @param reason [String] reason for rejecting
     # @return [Boolean] true if operation succeded
     def reject(id, reason = 'Brak powodu')
-      DBLista._validate_id id
+      DList._validate_id id
 
-      DBLista._post("/bots/verify/#{id}/reject?reason=#{CGI.escape reason}", nil, @token)
+      DList._post("/bots/verify/#{id}/reject?reason=#{CGI.escape reason}", nil, @token)
       true
     end
 
@@ -34,9 +34,9 @@ module DBLista::User
     # @param id [Integer] bot ID
     # @return [Boolean] true if operation succeded
     def set_pending(id)
-      DBLista._validate_id id
+      DList._validate_id id
 
-      DBLista._post("/bots/#{id}/set-pending", nil, @token)
+      DList._post("/bots/#{id}/set-pending", nil, @token)
       true
     end
   end

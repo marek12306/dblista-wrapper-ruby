@@ -3,43 +3,43 @@
 require 'open-uri'
 require 'json'
 
-module DBLista
+module DList
   # Bot/server/user detailed information
   #
-  # @example Checking DBLista user information
-  #   info = DBLista::Information.user 123456789012345678
+  # @example Checking DList user information
+  #   info = DList::Information.user 123456789012345678
   #   puts info
   module Information
-    # Fetches DBLista bot information
+    # Fetches DList bot information
     #
     # @param id [Integer] bot ID
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def self.bot(id)
-      DBLista._validate_id id
-      DBLista._cache(id.to_s.to_sym) do
-        DBLista._get("/bots/#{id}")
+      DList._validate_id id
+      DList._cache(id.to_s.to_sym) do
+        DList._get("/bots/#{id}")
       end
     end
 
-    # Fetches DBLista server information
+    # Fetches DList server information
     #
     # @param id [Integer] server ID
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def self.server(id)
-      DBLista._validate_id id
-      DBLista._cache(id.to_s.to_sym) do
-        DBLista._get("/servers/#{id}")
+      DList._validate_id id
+      DList._cache(id.to_s.to_sym) do
+        DList._get("/servers/#{id}")
       end
     end
 
-    # Fetches DBLista user information
+    # Fetches DList user information
     #
     # @param id [Integer] user ID
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def self.user(id)
-      DBLista._validate_id id
-      DBLista._cache(id.to_s.to_sym) do
-        DBLista._get("/users/#{id}")
+      DList._validate_id id
+      DList._cache(id.to_s.to_sym) do
+        DList._get("/users/#{id}")
       end
     end
   end

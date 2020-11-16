@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DBLista
+module DList
   # Tags
   module Tags
     # Bot tags

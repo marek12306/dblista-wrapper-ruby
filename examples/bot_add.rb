@@ -1,14 +1,14 @@
 require 'dblista'
 
-client = DBLista::User::Client.new('TOKEN')
+client = DList::User::Client.new('TOKEN')
 
 client.add({
   id: 'id',
   info: {
     library: 'NiceBot',
     tags: [
-      DBLista::Tags::Bot::FUN,
-      DBLista::Tags::Bot::TOOLS
+      DList::Tags::Bot::FUN,
+      DList::Tags::Bot::TOOLS
     ],
     prefix: '!',
     fullDescription: 'long description',

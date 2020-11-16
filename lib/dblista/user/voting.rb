@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DBLista::User
+module DList::User
   # User client - voting
   module Voting
     # Votes for a selected bot/server
@@ -9,10 +9,10 @@ module DBLista::User
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def vote(id, type = :bot)
-      DBLista._validate_id id
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      DList._validate_id id
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._post("/#{type}s/#{id}/vote", nil, @token)
+      DList._post("/#{type}s/#{id}/vote", nil, @token)
       true
     end
   end

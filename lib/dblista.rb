@@ -17,8 +17,8 @@ require_relative 'dblista/helpers'
 require_relative 'dblista/constants'
 
 # Main module
-module DBLista
-  # DBLista error class
+module DList
+  # DList error class
   class Error < StandardError; end
   # API path prefix
   API_PATH = 'https://api.dlist.top/v1'
@@ -43,55 +43,55 @@ module DBLista
     req['Authorization'] = token if token
     response = _https(uri).request(req)
     result = JSON.parse response.body
-    raise DBLista::Error, result['error'].capitalize unless result['status'] == 'success'
+    raise DList::Error, result['error'].capitalize unless result['status'] == 'success'
 
     result['data']
   end
 
   # @!visibility private
   def self._get(path, token = nil)
-    uri = URI("#{DBLista::API_PATH}#{path}")
+    uri = URI("#{DList::API_PATH}#{path}")
     req = Net::HTTP::Get.new(uri)
     _handle_request(req, uri, token, nil)
   end
 
   # @!visibility private
   def self._post(path, data = nil, token = nil)
-    uri = URI("#{DBLista::API_PATH}#{path}")
+    uri = URI("#{DList::API_PATH}#{path}")
     req = Net::HTTP::Post.new(uri)
     _handle_request(req, uri, token, data)
   end
 
   # @!visibility private
   def self._delete(path, data = nil, token = nil)
-    uri = URI("#{DBLista::API_PATH}#{path}")
+    uri = URI("#{DList::API_PATH}#{path}")
     req = Net::HTTP::Delete.new(uri)
     _handle_request(req, uri, token, data)
   end
 
   # @!visibility private
   def self._put(path, data = nil, token = nil)
-    uri = URI("#{DBLista::API_PATH}#{path}")
+    uri = URI("#{DList::API_PATH}#{path}")
     req = Net::HTTP::Put.new(uri)
     _handle_request(req, uri, token, data)
   end
 
   # @!visibility private
   def self._validate_id(id)
-    raise DBLista::Error, DBLista::Errors::ID_NEEDED unless DBLista::IS_NUMBER.match?(id.to_s)
+    raise DList::Error, DList::Errors::ID_NEEDED unless DList::IS_NUMBER.match?(id.to_s)
   end
 
   # @!visibility private
   def self._page_integer(input)
-    raise DBLista::Error, DBLista::Errors::PAGE_INTEGER unless input.is_a?(Integer)
+    raise DList::Error, DList::Errors::PAGE_INTEGER unless input.is_a?(Integer)
   end
 
   # @!visibility private
   def self._limit_integer(input)
-    raise DBLista::Error, DBLista::Errors::LIMIT_INTEGER unless input.is_a?(Integer)
+    raise DList::Error, DList::Errors::LIMIT_INTEGER unless input.is_a?(Integer)
   end
 
   def self._cache(name)
-    DBLista::Cache.get(name.to_sym, lifetime: DBLista::CACHE_LIFETIME) { yield }
+    DList::Cache.get(name.to_sym, lifetime: DList::CACHE_LIFETIME) { yield }
   end
 end

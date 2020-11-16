@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DBLista::User
+module DList::User
   # User client - rating
   module Rating
     # Sends rate for a selected bot/server
@@ -11,10 +11,10 @@ module DBLista::User
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def rate(id, rating, details, type = :bot)
-      DBLista._validate_id id
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      DList._validate_id id
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._post("/#{type}s/#{id}/rate", {
+      DList._post("/#{type}s/#{id}/rate", {
                       rating: rating,
                       details: details
                     }, @token)
@@ -28,10 +28,10 @@ module DBLista::User
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def delete_rate(id, target_id = nil, type = :bot)
-      DBLista._validate_id id
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      DList._validate_id id
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._delete("/#{type}s/#{id}/rate/#{target_id}", nil, @token)
+      DList._delete("/#{type}s/#{id}/rate/#{target_id}", nil, @token)
       true
     end
 
@@ -43,10 +43,10 @@ module DBLista::User
     # @param type [Symbol] type of entity (bot/server)
     # @return [Boolean] true if operation succeded
     def report_rate(id, rate_id, report_reason = 'Brak powodu', type = :bot)
-      DBLista._validate_id id
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      DList._validate_id id
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._post("/#{type}s/#{id}/ratings/#{rate_id}/report", {
+      DList._post("/#{type}s/#{id}/ratings/#{rate_id}/report", {
                                                                    reportReason: report_reason.to_s
                                                                  }, @token)
       true
@@ -54,19 +54,19 @@ module DBLista::User
 
     # Fetches all rate reports
     #
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def reports
-      DBLista._get('/reports')
+      DList._get('/reports')
     end
 
     # Deletes rate report
     #
     # @param id [Integer] report ID
-    # @return [Hash] raw data from DBLista
+    # @return [Hash] raw data from DList
     def delete_report(id, type = :bot)
-      raise DBLista::Error, DBLista::Errors::TYPE_NOT_ALLOWED unless DBLista::User::Client::ALLOWED_TYPES.include?(type)
+      raise DList::Error, DList::Errors::TYPE_NOT_ALLOWED unless DList::User::Client::ALLOWED_TYPES.include?(type)
 
-      DBLista._delete("/reports/#{id}", nil, @token)
+      DList._delete("/reports/#{id}", nil, @token)
       true
     end
   end

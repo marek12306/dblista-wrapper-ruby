@@ -1,5 +1,5 @@
 require 'dblista'
 
-user = DBLista::Information.user('ID')
+user = DList::Information.user('ID')
 
-puts DBLista::Helpers.get_avatar(user['id'], user['avatar'], 1024)
+puts DList::Helpers.get_avatar(user['id'], user['avatar'], 1024)

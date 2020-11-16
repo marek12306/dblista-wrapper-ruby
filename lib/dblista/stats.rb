@@ -3,19 +3,19 @@
 require 'net/https'
 require 'json'
 
-module DBLista
+module DList
   # Class for updating bot statistics
   #
-  # @example Hook bot stats to DBLista
+  # @example Hook bot stats to DList
   #   bot = Discordrb::Bot.new token: 'TOKEN'
-  #   dbl = DBLista::Stats.new 'DBLISTA_TOKEN', bot
+  #   dbl = DList::Stats.new 'DList_TOKEN', bot
   class Stats
     attr_accessor :token
 
-    # @param token [String] DBLista bot token
+    # @param token [String] DList bot token
     # @param bot [Discordrb::Bot] discordrb bot for auto-sending statistics
     def initialize(token, bot = nil)
-      raise DBLista::Error, DBLista::Errors::TOKEN_NOT_PROVIDED unless token
+      raise DList::Error, DList::Errors::TOKEN_NOT_PROVIDED unless token
 
       @token = token
       if bot&.connected?
@@ -38,13 +38,13 @@ module DBLista
       @thread
     end
 
-    # Sends statistics to DBLista
+    # Sends statistics to DList
     #
     # @param members [Integer] member count
     # @param servers [Integer] server count
     # @return [Boolean] true if operation succeded
     def update_stats(members, servers)
-      DBLista._post('/bots/stats', {
+      DList._post('/bots/stats', {
                       'servers' => servers,
                       'members' => members
                     }, @token)

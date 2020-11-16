@@ -1,5 +1,5 @@
 require 'dblista'
 
-results = DBLista::List::Bot.search(DBLista::Tags::Bot::MUSIC)
+results = DList::List::Bot.search(DList::Tags::Bot::MUSIC)
 
 puts results

@@ -5,7 +5,7 @@ require "dblista/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "dblista"
-  spec.version       = DBLista::VERSION
+  spec.version       = DList::VERSION
   spec.authors       = ["deepivin"]
   spec.email         = ["marek12306@gmail.com"]
 

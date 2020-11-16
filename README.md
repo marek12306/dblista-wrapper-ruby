@@ -1,4 +1,4 @@
-UWAGA: Moduł ten nie jest już rozwijany. Nie odpowiadam za żadne błędy wywołane tym modułem.
+UWAGA: Gem ten nie jest już rozwijany. Nie odpowiadam za żadne błędy wywołane tym gemem.
 -------------------------------------
 # DList (kiedyś DBLista) Ruby wrapper [![Gem Version](https://badge.fury.io/rb/dblista.svg)](https://badge.fury.io/rb/dblista)
 

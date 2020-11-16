@@ -1,8 +1,8 @@
-# DBLista Ruby wrapper [![Gem Version](https://badge.fury.io/rb/dblista.svg)](https://badge.fury.io/rb/dblista)
+# DList (kiedyś DBLista) Ruby wrapper [![Gem Version](https://badge.fury.io/rb/dblista.svg)](https://badge.fury.io/rb/dblista)
 
 [Dokumentacja](https://www.rubydoc.info/github/marek12306/dblista-wrapper-ruby)
 
-Gem pozwalający na komunikację z API DBListy.
+Gem pozwalający na komunikację z API DList.
 
 Pozwala na:
 

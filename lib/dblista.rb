@@ -21,7 +21,7 @@ module DBLista
   # DBLista error class
   class Error < StandardError; end
   # API path prefix
-  API_PATH = 'https://api.dblista.pl/v1'
+  API_PATH = 'https://api.dlist.top/v1'
   # Regexp for checking if string is a number
   IS_NUMBER = /^\d+$/.freeze
 

@@ -1,3 +1,5 @@
+UWAGA: Moduł ten nie jest już rozwijany. Nie odpowiadam za żadne błędy wywołane tym modułem.
+-------------------------------------
 # DList (kiedyś DBLista) Ruby wrapper [![Gem Version](https://badge.fury.io/rb/dblista.svg)](https://badge.fury.io/rb/dblista)
 
 [Dokumentacja](https://www.rubydoc.info/github/marek12306/dblista-wrapper-ruby)
